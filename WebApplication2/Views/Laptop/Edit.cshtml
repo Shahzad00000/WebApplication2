@@ -1,0 +1,49 @@
+﻿@model WebApplication2.Models.Laptop
+@{
+    ViewData["Title"] = "Edit";
+ }
+<h1>Update</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 border border-dark p-4 rounded-top">
+            <h1 class="text-center text-info">Update Image</h1>
+            <form method="post" asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" asp-for="Name" placeholder="Enter Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="hidden" asp-for="Id"/>
+                   <input type="hidden" asp-for="Path"/>
+                    
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" placeholder="Enter Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+                <div class="form-group">
+                    <label asp-for="FatherName"></label>
+                    <input type="text" asp-for="FatherName" placeholder="Enter Father Name" class="form-control" />
+                    <span asp-validation-for="FatherName" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label asp-for="FormFile"></label>
+                        <input type="file" class="form-control" asp-for="FormFile" id="ChooseImage" />
+                    </div>
+                    <div class="col-4">
+                        <img src="/Contant/Laptop/@Model.Path" style="width:100px;height:100px;border:1px solid red;border-radius:10px;padding:10px" alt="Laptop Image" id="PrevImg" />
+                    </div>
+                </div>
+                <div class="form-group m-2">
+                    <input type="submit" class="btn btn-group-sm btn-primary float-end" value="Update" />
+                </div>
+                <a class="btn btn-sm btn-warning" asp-action="Index" asp-controller="Laptop">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,48 @@
+﻿@model WebApplication2.Models.Laptop
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3 border border-dark p-4 rounded-top">
+            <h1 class="text-center text-info">Upload Image</h1>
+            <form method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input type="text" asp-for="Name" placeholder="Enter Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input type="text" asp-for="Email" placeholder="Enter Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FatherName"></label>
+                    <input type="text" asp-for="FatherName" placeholder="Enter Father Name" class="form-control" />
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <label asp-for="FormFile"></label>
+                        <input type="file" class="form-control" asp-for="FormFile" id="ChooseImage" />
+                    </div>
+                    <div class="col-4">
+                        <img src="https://placehold.jp/150*150.png" style="width:100px;height:100px;border:1px solid red;border-radius:10px;padding:10px" alt="Image" id="PrevImg" />
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>
+                <div class="form-group m-2">
+                    <input type="submit" class="btn btn-group-sm btn-primary float-end" value="SUBMIT" />
+                </div>
+                <a class="btn btn-sm btn-warning" asp-action="Index" asp-controller="Laptop">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+

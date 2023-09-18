@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication2.Models.Laptop>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="container">
+    <div class="row">
+        <div clas="col-8 offset-3">
+            <h1 class="text-center text-primary">Profile Image</h1>
+            <a class="btn btn-sm btn-primary float-end p-1 m-1" asp-action="Create" asp-controller="Laptop">Add Image</a>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr class="text-center bg-dark text-light">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>FatherName</th>
+                        <th>IsActive</th>
+                        <th>Path</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @if (Model != null)
+                    {
+                        @foreach (var d in Model)
+                        {
+                            var imagePath = "Contant/Laptop/" + d.Path;
+                            <tr>
+
+                                <td>@d.Id</td>
+                                <td>@d.Name</td>
+                                <td>@d.Email</td>
+                                <td>@d.FatherName</td>
+                                <td>@d.IsActive</td>
+                                <td>
+                                    <img src="@imagePath" height="100ppx" width="100px" />
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-controller="Laptop" asp-route-id="@d.Id">Edit</a>
+                                    <a class="btn btn-sm btn-danger" onclick="confirm('Are You sure,you want to deleted thid image?')" asp-action="Delete" asp-controller="Laptop" asp-route-id="@d.Id">Delete</a>
+                                    <a class="btn btn-sm btn-warning" asp-action="Details" asp-controller="Laptop" asp-route-id="@d.Id">Details</a>
+                                </td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
